@@ -66,4 +66,8 @@ public class Color {
     public String getColorAsHex() {
         return colorAsHex;
     }
+
+    public String asRgb() {
+        return String.format("RGB=%s,%s,%s", getRed(), getGreen(), getBlue());
+    }
 }

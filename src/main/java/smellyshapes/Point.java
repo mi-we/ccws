@@ -31,4 +31,9 @@ public class Point {
     public int getX() {
         return x;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d,%d", getX(), getY());
+    }
 }
