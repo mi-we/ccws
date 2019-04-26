@@ -14,7 +14,7 @@ class OlympicPersonNameStrategy extends PersonNameStrategy {
         if (isSurenameFirst) {
             return withFamilyNameFirst(givenName, familyName);
         } else {
-            return withFamilyNameLast(givenName, familyName);
+            return withGivenNameFirst(givenName, familyName);
         }
     }
 

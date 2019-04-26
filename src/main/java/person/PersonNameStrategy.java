@@ -17,7 +17,7 @@ abstract class PersonNameStrategy {
         }
     }
 
-    String withFamilyNameLast(String givenName, String familyName) {
+    String withGivenNameFirst(String givenName, String familyName) {
         return givenName + " " + capitalizeIfNeeded(familyName);
     }
 }

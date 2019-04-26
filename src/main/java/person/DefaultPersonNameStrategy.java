@@ -7,6 +7,6 @@ class DefaultPersonNameStrategy extends PersonNameStrategy {
 
     @Override
     String nameString(String givenName, String familyName) {
-        return withFamilyNameLast(givenName, familyName);
+        return withGivenNameFirst(givenName, familyName);
     }
 }
