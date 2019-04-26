@@ -2,6 +2,7 @@ package smellyshapes;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class ShapeGroup extends Shape {
 
@@ -59,6 +60,19 @@ public class ShapeGroup extends Shape {
         return Arrays.stream(shapes)
                 .filter(Objects::nonNull)
                 .anyMatch(shape -> shape.contains(x, y));
+    }
+
+    public String toXml() {
+        StringBuilder builder = new StringBuilder();
+
+        var group = (ShapeGroup) this;
+        builder.append("<shapegroup>\n");
+        IntStream.range(0, group.size)
+                .mapToObj(i -> group.shapes[i].toXml())
+                .forEach(builder::append);
+        builder.append("</shapegroup>\n");
+
+        return builder.toString();
     }
 
     public void setReadOnly(boolean readOnly) {
