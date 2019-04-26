@@ -1,41 +1,23 @@
 package person;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class PersonNameStrategy {
-    private static List<String> surnameFirst = new ArrayList<>();
-
-    static {
-        surnameFirst.add("CHN");
-        surnameFirst.add("KOR");
-        // etc...
-    }
-
-    private final String nationality;
-    private final boolean olympicMode;
+abstract class PersonNameStrategy {
     private final boolean capitalizeSurname;
 
-    public PersonNameStrategy(String nationality, boolean olympicMode, boolean capitalizeSurname) {
-        this.nationality = nationality;
-        this.olympicMode = olympicMode;
+    PersonNameStrategy(boolean capitalizeSurname) {
         this.capitalizeSurname = capitalizeSurname;
     }
 
-    String nameString(String givenName, String familyName) {
-        String surname = familyName;
+    abstract String nameString(String givenName, String familyName);
+
+    String capitalizeIfNeeded(String familyName) {
         if (capitalizeSurname) {
-            surname = familyName.toUpperCase();
+            return familyName.toUpperCase();
+        } else {
+            return familyName;
         }
-        if (surnameFirst())
-            return surname + " " + givenName;
-        else
-            return givenName + " " + surname;
     }
 
-    private boolean surnameFirst() {
-        if (!olympicMode)
-            return false;
-        return surnameFirst.contains(nationality);
+    String withFamilyNameLast(String givenName, String familyName) {
+        return givenName + " " + capitalizeIfNeeded(familyName);
     }
 }
