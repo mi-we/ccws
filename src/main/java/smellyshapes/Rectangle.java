@@ -1,7 +1,7 @@
 package smellyshapes;
 
 
-public class Rectangle extends Shape {
+public class Rectangle implements Shape {
 
     protected Color c = new Color("Blue");
     int width;
