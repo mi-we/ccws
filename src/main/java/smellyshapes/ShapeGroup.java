@@ -65,10 +65,9 @@ public class ShapeGroup implements Shape {
     public String toXml() {
         StringBuilder builder = new StringBuilder();
 
-        var group = (ShapeGroup) this;
         builder.append("<shapegroup>\n");
-        IntStream.range(0, group.size)
-                .mapToObj(i -> group.shapes[i].toXml())
+        IntStream.range(0, this.size)
+                .mapToObj(i -> this.shapes[i].toXml())
                 .forEach(builder::append);
         builder.append("</shapegroup>\n");
 
