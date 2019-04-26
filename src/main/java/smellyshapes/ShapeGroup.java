@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
-public class ShapeGroup extends Shape {
+public class ShapeGroup implements Shape {
 
     protected boolean readOnly = false;
     Shape[] shapes = new Shape[10];

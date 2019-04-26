@@ -1,6 +1,6 @@
 package smellyshapes;
 
-public class Circle extends Shape {
+public class Circle implements Shape {
 
     private int x;
     private int y;
