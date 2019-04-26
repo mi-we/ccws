@@ -2,16 +2,16 @@ package person;
 
 class OlympicPersonNameStrategy extends PersonNameStrategy {
 
-    private final boolean isSurenameFirst;
+    private final boolean isSurnameFirst;
 
-    OlympicPersonNameStrategy(boolean capitalizeSurname, boolean isSurenameFirst) {
+    OlympicPersonNameStrategy(boolean capitalizeSurname, boolean isSurnameFirst) {
         super(capitalizeSurname);
-        this.isSurenameFirst = isSurenameFirst;
+        this.isSurnameFirst = isSurnameFirst;
     }
 
     @Override
     String nameString(String givenName, String familyName) {
-        if (isSurenameFirst) {
+        if (isSurnameFirst) {
             return withFamilyNameFirst(givenName, familyName);
         } else {
             return withGivenNameFirst(givenName, familyName);
