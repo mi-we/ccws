@@ -10,7 +10,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@DisplayName("An science portal")
+@DisplayName("A science portal")
 class SciencePortalTest {
     @Test
     @DisplayName("can be queried for personally submitted essays")
