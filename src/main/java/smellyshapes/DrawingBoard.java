@@ -1,7 +1,8 @@
 package smellyshapes;
 
-public class DrawingBoard extends ShapeGroup {
+public class DrawingBoard {
 
+    private final ShapeGroup shapeGroup = new ShapeGroup();
     private Color backgroundColor;
 
     public static void main(String[] args) {
@@ -27,4 +28,9 @@ public class DrawingBoard extends ShapeGroup {
     public void load(String file) {
         // ...
     }
+
+    public void add(Shape shape) {
+        shapeGroup.add(shape);
+    }
+
 }
