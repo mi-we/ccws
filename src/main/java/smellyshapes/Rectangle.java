@@ -3,15 +3,13 @@ package smellyshapes;
 
 public class Rectangle implements Shape {
 
-    protected Color c = new Color("Blue");
+    private final Point point;
+    Color c = new Color("Blue");
     int width;
     int height;
-    private int x;
-    private int y;
 
-    public Rectangle(int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
+    public Rectangle(Point point, int width, int height) {
+        this.point = point;
         this.width = width;
         this.height = height;
     }
@@ -24,8 +22,8 @@ public class Rectangle implements Shape {
         return height;
     }
 
-    public boolean contains(int x, int y) {
-        return this.x <= x && x <= this.x + width && this.y <= y && y <= this.y + height;
+    public boolean contains(Point point) {
+        return this.point.getX() <= point.getX() && point.getX() <= this.point.getX() + width && this.point.getY() <= point.getY() && point.getY() <= this.point.getY() + height;
     }
 
     public int calculate() {
@@ -33,15 +31,15 @@ public class Rectangle implements Shape {
     }
 
     public int getX() {
-        return x;
+        return point.getX();
     }
 
     public int getY() {
-        return y;
+        return point.getY();
     }
 
     public String toString() {
-        return String.format("Rectangle: (%d,%d) width=%d height=%d color=%s", x, y, width, height,
+        return String.format("Rectangle: (%d,%d) width=%d height=%d color=%s", point.getX(), point.getY(), width, height,
                 c.getColorAsHex());
     }
 

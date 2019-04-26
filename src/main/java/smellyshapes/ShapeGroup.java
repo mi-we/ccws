@@ -33,10 +33,10 @@ public class ShapeGroup implements Shape {
         return shapes.contains(shape);
     }
 
-    public boolean contains(int x, int y) {
+    public boolean contains(Point point) {
         return shapes.stream()
                 .filter(Objects::nonNull)
-                .anyMatch(shape -> shape.contains(x, y));
+                .anyMatch(shape -> shape.contains(Point.of(point.getX(), point.getY())));
     }
 
     public String toXml() {

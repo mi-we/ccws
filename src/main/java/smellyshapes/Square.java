@@ -2,17 +2,17 @@ package smellyshapes;
 
 public class Square extends Rectangle {
 
-    public Square(int x, int y, int edgeLength) {
-        super(x, y, edgeLength, edgeLength);
+    public Square(Point point, int edgeLength) {
+        super(new Point(point.getX(), point.getY()), edgeLength, edgeLength);
     }
 
-    public Square(int x, int y, int edgeLength, Color color) {
-        super(x, y, edgeLength, edgeLength);
+    public Square(Point point, int edgeLength, Color color) {
+        super(new Point(point.getX(), point.getY()), edgeLength, edgeLength);
         this.c = color;
     }
 
-    public boolean containsPoint(int x, int y) {
-        return getX() <= x && x <= getX() + getWidth() && getY() <= y && y <= getY() + getWidth();
+    public boolean containsPoint(Point point) {
+        return getX() <= point.getX() && point.getX() <= getX() + getWidth() && getY() <= point.getY() && point.getY() <= getY() + getWidth();
     }
 
     public int getHeight() throws RuntimeException {
@@ -36,7 +36,7 @@ public class Square extends Rectangle {
         return builder.toString();
     }
 
-    public boolean contains(int x1, int y1, int x2, int y2) {
-        return contains(x1, y1) && contains(x2, y2);
+    public boolean contains(Point point1, Point point2) {
+        return contains(point1) && contains(point2);
     }
 }

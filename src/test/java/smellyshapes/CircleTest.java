@@ -13,27 +13,29 @@ public class CircleTest {
 
     @BeforeEach
     public void setUp() {
-        circle = new Circle(0, 0, 1);
+        circle = new Circle(Point.of(0, 0), 1);
         circle.setColor(new Color("Red"));
     }
 
     @Test
     @DisplayName("returns true if it contains a point and false if not")
     public void contains() {
-        assertTrue(circle.contains(0, 0));
-        assertTrue(circle.contains(0, 1));
-        assertTrue(circle.contains(1, 0));
+        assertTrue(circle.contains(Point.of(0, 0)));
+        assertTrue(circle.contains(Point.of(0, 1)));
+        assertTrue(circle.contains(Point.of(1, 0)));
 
-        assertFalse(circle.contains(1, 1));
-        assertFalse(circle.contains(-1, -1));
-        assertFalse(circle.contains(1, -1));
-        assertFalse(circle.contains(-1, 1));
+        assertFalse(circle.contains(Point.of(1, 1)));
+        assertFalse(circle.contains(Point.of(-1, -1)));
+        assertFalse(circle.contains(Point.of(1, -1)));
+        assertFalse(circle.contains(Point.of(-1, 1)));
     }
 
     @Test
     @DisplayName("returns the number of containing points it contains when counted")
     public void countContainingPoints() {
-        int result = circle.countContainingPoints(new int[]{0, 10}, new int[]{0, 10});
+        final int[] xCords = new int[]{0, 10};
+        final int[] yCords = new int[]{0, 10};
+        int result = circle.countContainingPoints(Point.of(xCords, yCords));
 
         assertEquals(1, result);
     }
