@@ -1,9 +1,6 @@
 package temporaryfield;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class SprintReportCreator {
 
@@ -57,7 +54,22 @@ class SprintReportCreator {
         );
     }
 
-    private void getNumberOfClosedStoriesPerTeam() {
+    public String getWinnerTeam() {
+        Set<String> teams = new HashSet<>(winningTeamPerSprint);
+        HashMap<String, Integer> frequencyPerTeam = new HashMap<>();
+        for (String team : teams) {
+            frequencyPerTeam.put(team, Collections.frequency(this.winningTeamPerSprint, team));
+        }
 
+        int maxFreq = -1;
+        String team = null;
+        for (Map.Entry<String, Integer> teamFreq : frequencyPerTeam.entrySet()) {
+            if (maxFreq < teamFreq.getValue()) {
+                maxFreq = teamFreq.getValue();
+                team = teamFreq.getKey();
+            }
+        }
+
+        return team;
     }
 }
