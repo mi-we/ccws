@@ -1,2 +1,3 @@
-# Clean Code Workshop 2019
-now with gradle instead of maven
+# Clean Code Workshop
+
+Repository for the code of the Zühlke Clean Code Workshop.
