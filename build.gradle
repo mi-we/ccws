@@ -2,10 +2,12 @@ plugins {
     id 'java'
 }
 
-group 'ccws2019'
+group 'ccws'
 version '2.1'
 
-sourceCompatibility = 1.10
+java {
+    sourceCompatibility 1.11
+}
 
 repositories {
     mavenCentral()
@@ -16,12 +18,7 @@ test {
 }
 
 dependencies {
-    testImplementation(
-            'junit:junit:4.12',
-            'org.junit.jupiter:junit-jupiter-api:5.4.2'
-    )
-    testRuntime(
-            'org.junit.jupiter:junit-jupiter-engine:5.4.2',
-            'org.junit.vintage:junit-vintage-engine:5.4.2'
-    )
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
 }
